@@ -14,3 +14,34 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::resource('agamaFromTables', 'Agama--fromTableController');
+
+Route::resource('agamas', 'AgamaController');
+
+Route::resource('articles', 'ArticleController');
+
+Route::resource('biodatas', 'BiodataController');
+
+Route::resource('dataUsahas', 'DataUsahaController');
+
+Route::resource('detailPenjualans', 'DetailPenjualanController');
+
+Route::resource('detailPurchaseOrders', 'DetailPurchaseOrdersController');
+
+Route::resource('detailPurchaseOrders', 'DetailPurchaseOrderController');
+
+Route::resource('jenisPembayarans', 'JenisPembayaranController');
+
+Route::resource('jenisProduks', 'JenisProdukController');
+
+Route::resource('kategoris', 'KategoriController');
+
+Route::resource('kontaks', 'KontaksController');
+
+Route::resource('pembelis', 'PembeliController');
