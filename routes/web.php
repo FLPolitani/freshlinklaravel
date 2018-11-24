@@ -45,3 +45,17 @@ Route::resource('kategoris', 'KategoriController');
 Route::resource('kontaks', 'KontaksController');
 
 Route::resource('pembelis', 'PembeliController');
+
+Route::resource('produks', 'ProdukController');
+
+Route::resource('purchaseOrders', 'PurchaseOrderController');
+
+Route::resource('satuans', 'SatuanController');
+
+Route::resource('satuanPenjualans', 'SatuanPenjualanController');
+
+Route::resource('transaksiPenjualans', 'TransaksiPenjualanController');
+
+Route::resource('transPenHasJenPembayarans', 'TransPenHasJenPembayaranController');
+
+Route::resource('transPenHasStatusPenjualans', 'TransPenHasStatusPenjualanController');

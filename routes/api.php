@@ -41,3 +41,17 @@ Route::resource('kategoris', 'KategoriAPIController');
 Route::resource('kontaks', 'KontaksAPIController');
 
 Route::resource('pembelis', 'PembeliAPIController');
+
+Route::resource('produks', 'ProdukAPIController');
+
+Route::resource('purchase_orders', 'PurchaseOrderAPIController');
+
+Route::resource('satuans', 'SatuanAPIController');
+
+Route::resource('satuan_penjualans', 'SatuanPenjualanAPIController');
+
+Route::resource('transaksi_penjualans', 'TransaksiPenjualanAPIController');
+
+Route::resource('trans_pen_has_jen_pembayarans', 'TransPenHasJenPembayaranAPIController');
+
+Route::resource('trans_pen_has_status_penjualans', 'TransPenHasStatusPenjualanAPIController');

@@ -50,3 +50,31 @@
     <a href="{!! route('pembelis.index') !!}"><i class="fa fa-edit"></i><span>Pembelis</span></a>
 </li>
 
+<li class="{{ Request::is('produks*') ? 'active' : '' }}">
+    <a href="{!! route('produks.index') !!}"><i class="fa fa-edit"></i><span>Produks</span></a>
+</li>
+
+<li class="{{ Request::is('purchaseOrders*') ? 'active' : '' }}">
+    <a href="{!! route('purchaseOrders.index') !!}"><i class="fa fa-edit"></i><span>Purchase Orders</span></a>
+</li>
+
+<li class="{{ Request::is('satuans*') ? 'active' : '' }}">
+    <a href="{!! route('satuans.index') !!}"><i class="fa fa-edit"></i><span>Satuans</span></a>
+</li>
+
+<li class="{{ Request::is('satuanPenjualans*') ? 'active' : '' }}">
+    <a href="{!! route('satuanPenjualans.index') !!}"><i class="fa fa-edit"></i><span>Satuan Penjualans</span></a>
+</li>
+
+<li class="{{ Request::is('transaksiPenjualans*') ? 'active' : '' }}">
+    <a href="{!! route('transaksiPenjualans.index') !!}"><i class="fa fa-edit"></i><span>Transaksi Penjualans</span></a>
+</li>
+
+<li class="{{ Request::is('transPenHasJenPembayarans*') ? 'active' : '' }}">
+    <a href="{!! route('transPenHasJenPembayarans.index') !!}"><i class="fa fa-edit"></i><span>Trans Pen Has Jen Pembayarans</span></a>
+</li>
+
+<li class="{{ Request::is('transPenHasStatusPenjualans*') ? 'active' : '' }}">
+    <a href="{!! route('transPenHasStatusPenjualans.index') !!}"><i class="fa fa-edit"></i><span>Trans Pen Has Status Penjualans</span></a>
+</li>
+
