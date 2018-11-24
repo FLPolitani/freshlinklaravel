@@ -1,6 +1,3 @@
-<li class="{{ Request::is('agamaFromTables*') ? 'active' : '' }}">
-    <a href="{!! route('agamaFromTables.index') !!}"><i class="fa fa-edit"></i><span>Agama--From Tables</span></a>
-</li>
 
 <li class="{{ Request::is('agamas*') ? 'active' : '' }}">
     <a href="{!! route('agamas.index') !!}"><i class="fa fa-edit"></i><span>Agamas</span></a>
