@@ -59,3 +59,9 @@ Route::resource('transaksiPenjualans', 'TransaksiPenjualanController');
 Route::resource('transPenHasJenPembayarans', 'TransPenHasJenPembayaranController');
 
 Route::resource('transPenHasStatusPenjualans', 'TransPenHasStatusPenjualanController');
+
+Route::resource('permissionRoles', 'PermissionRoleController');
+
+Route::resource('permissions', 'PermissionController');
+
+Route::resource('roles', 'RoleController');
