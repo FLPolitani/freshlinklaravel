@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class DetailPurchaseOrderRepository
  * @package App\Repositories
- * @version November 24, 2018, 6:18 am UTC
+ * @version April 4, 2018, 7:54 am UTC
  *
  * @method DetailPurchaseOrder findWithoutFail($id, $columns = ['*'])
  * @method DetailPurchaseOrder find($id, $columns = ['*'])

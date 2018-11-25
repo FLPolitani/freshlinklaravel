@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class SatuanRepository
  * @package App\Repositories
- * @version November 24, 2018, 6:53 am UTC
+ * @version April 5, 2018, 5:27 am UTC
  *
  * @method Satuan findWithoutFail($id, $columns = ['*'])
  * @method Satuan find($id, $columns = ['*'])

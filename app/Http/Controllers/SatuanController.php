@@ -7,7 +7,7 @@ use App\Http\Requests\UpdateSatuanRequest;
 use App\Repositories\SatuanRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Flash;
+use Laracasts\Flash\Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 

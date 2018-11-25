@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Satuan
  * @package App\Models
- * @version November 24, 2018, 6:53 am UTC
+ * @version April 5, 2018, 5:27 am UTC
  *
  * @property \Illuminate\Database\Eloquent\Collection biodatas
  * @property \Illuminate\Database\Eloquent\Collection DetailPenjualan

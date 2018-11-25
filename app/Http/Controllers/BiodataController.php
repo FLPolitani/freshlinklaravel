@@ -7,9 +7,12 @@ use App\Http\Requests\UpdateBiodataRequest;
 use App\Repositories\BiodataRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Flash;
+use Laracasts\Flash\Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Agama;
+use App\Models\Biodata;
+use App\Models\Kontak;
 
 class BiodataController extends AppBaseController
 {
@@ -43,7 +46,9 @@ class BiodataController extends AppBaseController
      */
     public function create()
     {
-        return view('biodatas.create');
+        $agamas =Agama::pluck('nama','id');
+        return view('biodatas.create',
+            compact('agamas'));
     }
 
     /**

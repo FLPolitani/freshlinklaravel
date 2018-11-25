@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class PembeliRepository
  * @package App\Repositories
- * @version November 24, 2018, 6:23 am UTC
+ * @version April 4, 2018, 8:01 am UTC
  *
  * @method Pembeli findWithoutFail($id, $columns = ['*'])
  * @method Pembeli find($id, $columns = ['*'])

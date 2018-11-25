@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateDetailPenjualanRequest;
 use App\Http\Requests\UpdateDetailPenjualanRequest;
+use App\Models\Produk;
+use App\Models\Satuan;
 use App\Repositories\DetailPenjualanRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Flash;
+use Laracasts\Flash\Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -56,12 +58,15 @@ class DetailPenjualanController extends AppBaseController
     public function store(CreateDetailPenjualanRequest $request)
     {
         $input = $request->all();
+        $produk = Produk::pluck('nama','produk_id');
+        $satuan = Satuan::pluck('nama','satuan_id');
+        $petani = Petani::pluck('nama','petani_id');
 
         $detailPenjualan = $this->detailPenjualanRepository->create($input);
 
         Flash::success('Detail Penjualan saved successfully.');
 
-        return redirect(route('detailPenjualans.index'));
+        return redirect(route('detailPenjualans.index'),compact('produk','satuan','petani'));
     }
 
     /**

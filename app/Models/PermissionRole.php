@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class PermissionRole
  * @package App\Models
- * @version November 24, 2018, 9:17 am UTC
+ * @version April 5, 2018, 5:24 am UTC
  *
  * @property \App\Models\Permission permission
  * @property \App\Models\Role role

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class DataUsaha
  * @package App\Models
- * @version November 24, 2018, 6:04 am UTC
+ * @version April 4, 2018, 7:51 am UTC
  *
  * @property \App\Models\User user
  * @property \Illuminate\Database\Eloquent\Collection biodatas

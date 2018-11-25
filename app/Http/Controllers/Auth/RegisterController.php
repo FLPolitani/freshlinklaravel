@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Pembeli;
+use App\Models\Role;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -62,10 +65,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $user=null;
+        try {
+
+            DB::beginTransaction();
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+            ]);
+
+            $role = Role::where('name', 'pembeli')->firstOrFail();
+            $user->attachRole($role);
+
+            $data['users_id'] = $user->id;
+            Pembeli::create($data);
+
+            DB::commit();
+
+
+        } catch (Exception $e) {
+            DB::rollback();
+        }
+        //Session::flash('flash_me
+
+        return $user;
     }
 }

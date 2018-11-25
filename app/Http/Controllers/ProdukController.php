@@ -4,10 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProdukRequest;
 use App\Http\Requests\UpdateProdukRequest;
+use App\Models\DataUsaha;
+use App\Models\JenisProduk;
+use App\Models\Kategori;
+use App\Models\Produk;
+use App\Models\Satuan;
 use App\Repositories\ProdukRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Flash;
+use Illuminate\Support\Facades\DB;
+use Laracasts\Flash\Flash;
+use League\Flysystem\Exception;
+use Illuminate\Support\Facades\File;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -43,7 +51,10 @@ class ProdukController extends AppBaseController
      */
     public function create()
     {
-        return view('produks.create');
+        $jenisProduk = JenisProduk::pluck('nama_jenis_produk','id');
+        $satuanTerkecil = Satuan::pluck('nama','id');
+        $kategori = Kategori::pluck('nama','id');
+        return view('produks.create',compact('jenisProduk','satuanTerkecil','kategori'));
     }
 
     /**
@@ -57,9 +68,35 @@ class ProdukController extends AppBaseController
     {
         $input = $request->all();
 
-        $produk = $this->produkRepository->create($input);
+        //return $input;
+        //$produk = $this->produkRepository->create($input);
 
-        Flash::success('Produk saved successfully.');
+        try{
+            DB::beginTransaction();
+            $produk = Produk::create($input);
+
+            $path = null;
+
+            if( $request->hasFile('foto')) {
+                $ext=File::extension($request->file('foto')->getClientOriginalName());
+                $filename='foto'.$produk->id.'.'.$ext;
+                $path = $request->foto->storeAs('foto', $filename,'local_public');
+                chmod(public_path().'/'.$path, 0777);
+            }
+            if($path!=null){
+                $produk->foto=$path;
+                $produk->save();
+            }
+
+            DB::commit();
+
+            Flash::success('Produk saved successfully.');
+        }catch (Exception $e){
+            DB::rollback();
+            Flash::error('Produk gagal disimpan.');
+        }
+
+
 
         return redirect(route('produks.index'));
     }
@@ -74,6 +111,7 @@ class ProdukController extends AppBaseController
     public function show($id)
     {
         $produk = $this->produkRepository->findWithoutFail($id);
+
 
         if (empty($produk)) {
             Flash::error('Produk not found');
@@ -95,13 +133,17 @@ class ProdukController extends AppBaseController
     {
         $produk = $this->produkRepository->findWithoutFail($id);
 
+        $jenisProduk = JenisProduk::pluck('nama_jenis_produk','id');
+        $satuanTerkecil = Satuan::pluck('nama','id');
+        $kategori = Kategori::pluck('nama','id');
+
         if (empty($produk)) {
             Flash::error('Produk not found');
 
             return redirect(route('produks.index'));
         }
 
-        return view('produks.edit')->with('produk', $produk);
+        return view('produks.edit',compact('jenisProduk','satuanTerkecil','kategori','produk'));
     }
 
     /**
@@ -122,9 +164,35 @@ class ProdukController extends AppBaseController
             return redirect(route('produks.index'));
         }
 
-        $produk = $this->produkRepository->update($request->all(), $id);
+        //$produks = $this->produkRepository->update($request->all(), $id);
 
-        Flash::success('Produk updated successfully.');
+        $requestData=$request->all();
+
+        try{
+            DB::beginTransaction();
+            $produks = Produk::where('id',$id)->firstOrFail();
+            $produks->update($requestData);
+
+            $path = null;
+
+            if( $request->hasFile('foto')) {
+                $ext=File::extension($request->file('foto')->getClientOriginalName());
+                $filename='foto'.$produks->id.'.'.$ext;
+                $path = $request->foto->storeAs('foto', $filename,'local_public');
+                chmod(public_path().'/'.$path, 0777);
+            }
+            if($path!=null){
+                $produks->foto=$path;
+                $produks->save();
+            }
+
+            DB::commit();
+
+            Flash::success('Produk updated successfully.');
+
+        }catch (Exception $e){
+            DB::rollback();
+        }
 
         return redirect(route('produks.index'));
     }

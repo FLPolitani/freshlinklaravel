@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateKategoriRequest;
 use App\Http\Requests\UpdateKategoriRequest;
+use App\Models\Kategori;
 use App\Repositories\KategoriRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Flash;
+use Laracasts\Flash\Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -56,12 +57,13 @@ class KategoriController extends AppBaseController
     public function store(CreateKategoriRequest $request)
     {
         $input = $request->all();
+        $parentKategori = Kategori::pluck('nama','parent_kategori_id');
 
         $kategori = $this->kategoriRepository->create($input);
 
         Flash::success('Kategori saved successfully.');
 
-        return redirect(route('kategoris.index'));
+        return redirect(route('kategoris.index'),compact('parentKategori'));
     }
 
     /**

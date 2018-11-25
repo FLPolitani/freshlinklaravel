@@ -36,9 +36,7 @@ class ProdukAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->produkRepository->pushCriteria(new RequestCriteria($request));
-        $this->produkRepository->pushCriteria(new LimitOffsetCriteria($request));
-        $produks = $this->produkRepository->all();
+        $produks = Produk::with(['kategori','satuan','jenisProduk'])->get();
 
         return $this->sendResponse($produks->toArray(), 'Produks retrieved successfully');
     }

@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class JenisProdukRepository
  * @package App\Repositories
- * @version November 24, 2018, 6:20 am UTC
+ * @version April 4, 2018, 7:58 am UTC
  *
  * @method JenisProduk findWithoutFail($id, $columns = ['*'])
  * @method JenisProduk find($id, $columns = ['*'])

@@ -7,7 +7,7 @@ use App\Http\Requests\UpdateJenisPembayaranRequest;
 use App\Repositories\JenisPembayaranRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Flash;
+use Laracasts\Flash\Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 

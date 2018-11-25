@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Kategori
  * @package App\Models
- * @version November 24, 2018, 6:22 am UTC
+ * @version April 4, 2018, 7:59 am UTC
  *
  * @property \Illuminate\Database\Eloquent\Collection biodatas
  * @property \Illuminate\Database\Eloquent\Collection permissionRole

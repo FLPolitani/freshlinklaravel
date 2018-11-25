@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class JenisPembayaranRepository
  * @package App\Repositories
- * @version November 24, 2018, 6:19 am UTC
+ * @version April 4, 2018, 7:55 am UTC
  *
  * @method JenisPembayaran findWithoutFail($id, $columns = ['*'])
  * @method JenisPembayaran find($id, $columns = ['*'])
