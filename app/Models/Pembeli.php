@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Pembeli
  * @package App\Models
- * @version November 24, 2018, 6:23 am UTC
+ * @version April 4, 2018, 8:01 am UTC
  *
  * @property \App\Models\User user
  * @property \Illuminate\Database\Eloquent\Collection biodatas
@@ -60,7 +60,7 @@ class Pembeli extends Model
      **/
     public function user()
     {
-        return $this->belongsTo(\App\Models\User::class);
+        return $this->belongsTo(\App\User::class,'users_id','id');
     }
 
     /**
@@ -68,6 +68,11 @@ class Pembeli extends Model
      **/
     public function purchaseOrders()
     {
-        return $this->hasMany(\App\Models\PurchaseOrder::class);
+        return $this->hasMany(\App\Models\PurchaseOrders::class);
+    }
+
+    public function detailPurchaseOrders()
+    {
+        return $this->hasManyThrough(\App\Models\DetailPurchaseOrder::class,\App\Models\PurchaseOrders::class);
     }
 }

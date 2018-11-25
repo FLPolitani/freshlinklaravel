@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class DataUsahaRepository
  * @package App\Repositories
- * @version November 24, 2018, 6:04 am UTC
+ * @version April 4, 2018, 7:51 am UTC
  *
  * @method DataUsaha findWithoutFail($id, $columns = ['*'])
  * @method DataUsaha find($id, $columns = ['*'])

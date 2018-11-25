@@ -6,14 +6,14 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($purchaseOrders as $purchaseOrder)
+    @foreach($purchaseOrders as $purchaseOrders)
         <tr>
-            <td>{!! $purchaseOrder->pembeli_id !!}</td>
+            <td>{!! $purchaseOrders->pembeli_id !!}</td>
             <td>
-                {!! Form::open(['route' => ['purchaseOrders.destroy', $purchaseOrder->id], 'method' => 'delete']) !!}
+                {!! Form::open(['route' => ['purchaseOrders.destroy', $purchaseOrders->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
-                    <a href="{!! route('purchaseOrders.show', [$purchaseOrder->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('purchaseOrders.edit', [$purchaseOrder->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="{!! route('purchaseOrders.show', [$purchaseOrders->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                    <a href="{!! route('purchaseOrders.edit', [$purchaseOrders->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
                     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 </div>
                 {!! Form::close() !!}

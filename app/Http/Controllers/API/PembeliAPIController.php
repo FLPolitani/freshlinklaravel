@@ -4,7 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Requests\API\CreatePembeliAPIRequest;
 use App\Http\Requests\API\UpdatePembeliAPIRequest;
+use App\Models\DetailPurchaseOrder;
 use App\Models\Pembeli;
+use App\Models\PurchaseOrders;
 use App\Repositories\PembeliRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
@@ -36,9 +38,9 @@ class PembeliAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->pembeliRepository->pushCriteria(new RequestCriteria($request));
-        $this->pembeliRepository->pushCriteria(new LimitOffsetCriteria($request));
-        $pembelis = $this->pembeliRepository->all();
+        $pembelis = Pembeli::with(['user','detailPurchaseOrders' => function($query){
+            $query->with(['produk','satuan','purchaseOrder']);
+        }])->get();
 
         return $this->sendResponse($pembelis->toArray(), 'Pembelis retrieved successfully');
     }
@@ -56,6 +58,9 @@ class PembeliAPIController extends AppBaseController
         $input = $request->all();
 
         $pembelis = $this->pembeliRepository->create($input);
+
+        $data['pembeli_id'] = $pembelis->id;
+        PurchaseOrders::create($data);
 
         return $this->sendResponse($pembelis->toArray(), 'Pembeli saved successfully');
     }

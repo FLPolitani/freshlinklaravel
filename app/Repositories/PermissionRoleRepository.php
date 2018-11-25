@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class PermissionRoleRepository
  * @package App\Repositories
- * @version November 24, 2018, 9:17 am UTC
+ * @version April 5, 2018, 5:24 am UTC
  *
  * @method PermissionRole findWithoutFail($id, $columns = ['*'])
  * @method PermissionRole find($id, $columns = ['*'])

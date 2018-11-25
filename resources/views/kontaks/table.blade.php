@@ -7,15 +7,15 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($kontaks as $kontaks)
+    @foreach($kontaks as $kontak)
         <tr>
-            <td>{!! $kontaks->nomor !!}</td>
-            <td>{!! $kontaks->biodatas_id !!}</td>
+            <td>{!! $kontak->nomor !!}</td>
+            <td>{!! $kontak->biodatas_id !!}</td>
             <td>
-                {!! Form::open(['route' => ['kontaks.destroy', $kontaks->id], 'method' => 'delete']) !!}
+                {!! Form::open(['route' => ['kontaks.destroy', $kontak->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
-                    <a href="{!! route('kontaks.show', [$kontaks->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('kontaks.edit', [$kontaks->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="{!! route('kontaks.show', [$kontak->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                    <a href="{!! route('kontaks.edit', [$kontak->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
                     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 </div>
                 {!! Form::close() !!}

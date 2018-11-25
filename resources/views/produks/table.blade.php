@@ -8,7 +8,7 @@
         <th>Keterangan</th>
         <th>Harga Petani</th>
         <th>Harga Jual</th>
-        <th>Foto</th>
+            <th>Foto</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
@@ -16,9 +16,9 @@
     @foreach($produks as $produk)
         <tr>
             <td>{!! $produk->nama !!}</td>
-            <td>{!! $produk->jenis_produk_id !!}</td>
-            <td>{!! $produk->satuan_terkecil_id !!}</td>
-            <td>{!! $produk->kategori_id !!}</td>
+            <td>{!! $produk->jenisProduk->nama_jenis_produk !!}</td>
+            <td>{!! $produk->satuan->nama !!}</td>
+            <td>{!! $produk->kategori->nama !!}</td>
             <td>{!! $produk->keterangan !!}</td>
             <td>{!! $produk->harga_petani !!}</td>
             <td>{!! $produk->harga_jual !!}</td>

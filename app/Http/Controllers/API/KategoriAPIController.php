@@ -36,9 +36,7 @@ class KategoriAPIController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->kategoriRepository->pushCriteria(new RequestCriteria($request));
-        $this->kategoriRepository->pushCriteria(new LimitOffsetCriteria($request));
-        $kategoris = $this->kategoriRepository->all();
+        $kategoris = Kategori::with(['produks'])->get();
 
         return $this->sendResponse($kategoris->toArray(), 'Kategoris retrieved successfully');
     }

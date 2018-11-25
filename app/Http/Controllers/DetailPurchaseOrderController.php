@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateDetailPurchaseOrderRequest;
 use App\Http\Requests\UpdateDetailPurchaseOrderRequest;
+use App\Models\Produk;
+use App\Models\PurchaseOrders;
+use App\Models\Satuan;
 use App\Repositories\DetailPurchaseOrderRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Flash;
+use Laracasts\Flash\Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -43,7 +46,11 @@ class DetailPurchaseOrderController extends AppBaseController
      */
     public function create()
     {
-        return view('detail_purchase_orders.create');
+        $produk = Produk::pluck('nama','id');
+        $satuan = Satuan::pluck('nama','id');
+        $purchaseOrders = PurchaseOrders::pluck('pembeli_id','id');
+
+        return view('detail_purchase_orders.create',compact('produk','satuan','purchaseOrders'));
     }
 
     /**
@@ -56,7 +63,6 @@ class DetailPurchaseOrderController extends AppBaseController
     public function store(CreateDetailPurchaseOrderRequest $request)
     {
         $input = $request->all();
-
         $detailPurchaseOrder = $this->detailPurchaseOrderRepository->create($input);
 
         Flash::success('Detail Purchase Order saved successfully.');
@@ -95,13 +101,16 @@ class DetailPurchaseOrderController extends AppBaseController
     {
         $detailPurchaseOrder = $this->detailPurchaseOrderRepository->findWithoutFail($id);
 
+        $produk = Produk::pluck('nama','produk_id');
+        $satuan = Satuan::pluck('nama','satuan_id');
+
         if (empty($detailPurchaseOrder)) {
             Flash::error('Detail Purchase Order not found');
 
             return redirect(route('detailPurchaseOrders.index'));
         }
 
-        return view('detail_purchase_orders.edit')->with('detailPurchaseOrder', $detailPurchaseOrder);
+        return view('detail_purchase_orders.edit',compact('detailPurchaseOrder','produk','satuan'));
     }
 
     /**

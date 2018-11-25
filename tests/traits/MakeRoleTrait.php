@@ -46,8 +46,7 @@ trait MakeRoleTrait
             'display_name' => $fake->word,
             'description' => $fake->word,
             'created_at' => $fake->date('Y-m-d H:i:s'),
-            'updated_at' => $fake->date('Y-m-d H:i:s'),
-            'deleted_at' => $fake->date('Y-m-d H:i:s')
+            'updated_at' => $fake->date('Y-m-d H:i:s')
         ], $roleFields);
     }
 }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class TransaksiPenjualan
  * @package App\Models
- * @version November 24, 2018, 6:55 am UTC
+ * @version April 5, 2018, 5:30 am UTC
  *
  * @property \App\Models\PurchaseOrder purchaseOrder
  * @property \Illuminate\Database\Eloquent\Collection biodatas

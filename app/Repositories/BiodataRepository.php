@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class BiodataRepository
  * @package App\Repositories
- * @version November 24, 2018, 6:02 am UTC
+ * @version April 4, 2018, 7:49 am UTC
  *
  * @method Biodata findWithoutFail($id, $columns = ['*'])
  * @method Biodata find($id, $columns = ['*'])

@@ -1,7 +1,7 @@
 <!-- Users Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('users_id', 'Users Id:') !!}
-    {!! Form::number('users_id', null, ['class' => 'form-control']) !!}
+    {!! Form::number('users_id', Auth::id(), ['class' => 'form-control']) !!}
 </div>
 
 <!-- Nik Field -->
@@ -37,7 +37,7 @@
 <!-- Agama Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('agama_id', 'Agama Id:') !!}
-    {!! Form::number('agama_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('agama_id', $agamas ,null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Foto Field -->

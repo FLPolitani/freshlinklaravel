@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class DetailPurchaseOrder
  * @package App\Models
- * @version November 24, 2018, 6:18 am UTC
+ * @version April 4, 2018, 7:54 am UTC
  *
  * @property \App\Models\Produk produk
  * @property \App\Models\PurchaseOrder purchaseOrder
@@ -81,7 +81,7 @@ class DetailPurchaseOrder extends Model
      **/
     public function purchaseOrder()
     {
-        return $this->belongsTo(\App\Models\PurchaseOrder::class);
+        return $this->belongsTo(\App\Models\PurchaseOrders::class,'purchase_orders_id','id');
     }
 
     /**

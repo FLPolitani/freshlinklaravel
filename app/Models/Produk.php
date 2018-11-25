@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Produk
  * @package App\Models
- * @version November 24, 2018, 6:51 am UTC
+ * @version April 17, 2018, 3:36 am UTC
  *
  * @property \App\Models\Kategori kategori
  * @property \App\Models\Satuan satuan
@@ -27,7 +27,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string keterangan
  * @property integer harga_petani
  * @property integer harga_jual
- * @property string foto
  */
 class Produk extends Model
 {
@@ -92,7 +91,7 @@ class Produk extends Model
      **/
     public function satuan()
     {
-        return $this->belongsTo(\App\Models\Satuan::class);
+        return $this->belongsTo(\App\Models\Satuan::class,'satuan_terkecil_id');
     }
 
     /**

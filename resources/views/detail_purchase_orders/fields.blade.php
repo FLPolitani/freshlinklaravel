@@ -1,13 +1,13 @@
 <!-- Purchase Orders Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('purchase_orders_id', 'Purchase Orders Id:') !!}
-    {!! Form::number('purchase_orders_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('purchase_orders_id', $purchaseOrders, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Produk Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('produk_id', 'Produk Id:') !!}
-    {!! Form::number('produk_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('produk_id', $produk, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Jumlah Field -->
@@ -19,7 +19,7 @@
 <!-- Satuan Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('satuan_id', 'Satuan Id:') !!}
-    {!! Form::number('satuan_id', null, ['class' => 'form-control']) !!}
+    {!! Form::select('satuan_id', $satuan, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Harga Jual Field -->

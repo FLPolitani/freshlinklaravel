@@ -51,8 +51,7 @@ trait MakeProdukTrait
             'kategori_id' => $fake->randomDigitNotNull,
             'keterangan' => $fake->word,
             'harga_petani' => $fake->randomDigitNotNull,
-            'harga_jual' => $fake->randomDigitNotNull,
-            'foto' => $fake->word
+            'harga_jual' => $fake->randomDigitNotNull
         ], $produkFields);
     }
 }

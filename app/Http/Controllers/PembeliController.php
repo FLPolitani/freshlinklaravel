@@ -6,8 +6,9 @@ use App\Http\Requests\CreatePembeliRequest;
 use App\Http\Requests\UpdatePembeliRequest;
 use App\Repositories\PembeliRepository;
 use App\Http\Controllers\AppBaseController;
+use App\User;
 use Illuminate\Http\Request;
-use Flash;
+use Laracasts\Flash\Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -56,12 +57,13 @@ class PembeliController extends AppBaseController
     public function store(CreatePembeliRequest $request)
     {
         $input = $request->all();
+        $user = User::pluck('name','users_id');
 
         $pembeli = $this->pembeliRepository->create($input);
 
         Flash::success('Pembeli saved successfully.');
 
-        return redirect(route('pembelis.index'));
+        return redirect(route('pembelis.index'),compact('user'));
     }
 
     /**

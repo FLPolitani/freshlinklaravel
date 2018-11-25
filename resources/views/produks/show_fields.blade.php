@@ -64,9 +64,3 @@
     <p>{!! $produk->harga_jual !!}</p>
 </div>
 
-<!-- Foto Field -->
-<div class="form-group">
-    {!! Form::label('foto', 'Foto:') !!}
-    <p>{!! $produk->foto !!}</p>
-</div>
-
